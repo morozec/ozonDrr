@@ -1,12 +1,26 @@
 // const ROW_NUMBER_CELL = 'J3';
 const ROW_NUMBER = 220;
-const MAIN_TODAY_RANGE = 'A4:F4';
+
 
 function myFunction() {
+  sortSheetsByOzonId();
   processMain();
   processGoods();
 };
 
+const sortSheetsByOzonId = () => {
+  sortSheetByOzonId('ПВП', 1);
+  sortSheetByOzonId('Трафареты', 1);
+  sortSheetByOzonId('Вывод в топ', 1);
+  sortSheetByOzonId('Графики', 3);
+}
+
+const sortSheetByOzonId = (sheetName, ozonIdColumnIndex) => {
+  var sheet = SpreadsheetApp.getActive().getSheetByName(sheetName);
+  sheet.sort(ozonIdColumnIndex, true);
+}
+
+const MAIN_TODAY_RANGE = 'A4:G4';
 const processMain = () => {
   const mainSheet = SpreadsheetApp.getActive().getSheetByName('ДРР')
   const pasteCell = mainSheet.getRange(`A${ROW_NUMBER}`);
@@ -24,3 +38,4 @@ const processGoods = () => {
     goodsSheet.getRange(GOODS_TODAY_RANGE).copyTo(pasteCell, SpreadsheetApp.CopyPasteType.PASTE_VALUES, false);
   }
 }
+
