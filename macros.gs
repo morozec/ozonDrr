@@ -1,6 +1,6 @@
-  // const ROW_NUMBER_CELL = 'J3';
-  const ROW_NUMBER = 220;
-  const MAIN_TODAY_RANGE = 'A4:F4';
+// const ROW_NUMBER_CELL = 'J3';
+const ROW_NUMBER = 220;
+const MAIN_TODAY_RANGE = 'A4:F4';
 
 function myFunction() {
   processMain();
